@@ -128,13 +128,10 @@ const CreateListing = () => {
       });
 
       /* Send a POST request to server */
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/properties/create`,
-        {
-          method: "POST",
-          body: listingForm,
-        }
-      );
+      const response = await fetch(`http://localhost:3001/properties/create`, {
+        method: "POST",
+        body: listingForm,
+      });
 
       if (response.ok) {
         navigate("/");
