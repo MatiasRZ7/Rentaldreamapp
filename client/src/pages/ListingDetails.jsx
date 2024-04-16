@@ -20,7 +20,7 @@ const ListingDetails = () => {
   const getListingDetails = async () => {
     try {
       const response = await fetch(
-        `http://localhost:3001/properties/${listingId}`,
+        `${process.env.REACT_APP_API_URL}/properties/${listingId}`,
         {
           method: "GET",
         }
@@ -74,13 +74,16 @@ const ListingDetails = () => {
         totalPrice: listing.price * dayCount,
       };
 
-      const response = await fetch("http://localhost:3001/bookings/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(bookingForm),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/bookings/create`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(bookingForm),
+        }
+      );
 
       if (response.ok) {
         navigate(`/${customerId}/trips`);
@@ -105,7 +108,10 @@ const ListingDetails = () => {
         <div className="photos">
           {listing.listingPhotoPaths?.map((item) => (
             <img
-              src={`http://localhost:3001/${item.replace("public", "")}`}
+              src={`${process.env.REACT_APP_API_URL}/${item.replace(
+                "public",
+                ""
+              )}`}
               alt="listing photo"
             />
           ))}
@@ -123,10 +129,9 @@ const ListingDetails = () => {
 
         <div className="profile">
           <img
-            src={`http://localhost:3001/${listing.creator.ProfileImagePath.replace(
-              "public",
-              ""
-            )}`}
+            src={`http://${
+              process.env.REACT_APP_API_URL
+            }/${listing.creator.ProfileImagePath.replace("public", "")}`}
           />
           <h3>
             Hosted by {listing.creator.firstName} {listing.creator.lastName}

@@ -18,8 +18,8 @@ const Listings = () => {
     try {
       const response = await fetch(
         selectedCategory !== "All"
-          ? `http://localhost:3001/properties?category=${selectedCategory}`
-          : "http://localhost:3001/properties",
+          ? `${process.env.REACT_APP_API_URL}/properties?category=${selectedCategory}`
+          : `${process.env.REACT_APP_API_URL}/properties`,
         {
           method: "GET",
         }
@@ -42,7 +42,9 @@ const Listings = () => {
       <div className="category-list">
         {categories?.map((category, index) => (
           <div
-            className={`category ${category.label === selectedCategory ? "selected" : ""}`}
+            className={`category ${
+              category.label === selectedCategory ? "selected" : ""
+            }`}
             key={index}
             onClick={() => setSelectedCategory(category.label)}
           >
@@ -67,7 +69,7 @@ const Listings = () => {
               category,
               type,
               price,
-              booking=false
+              booking = false,
             }) => (
               <ListingCard
                 listingId={_id}

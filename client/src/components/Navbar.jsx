@@ -61,7 +61,7 @@ const Navbar = () => {
             <Person sx={{ color: variables.darkgrey }} />
           ) : (
             <img
-              src={`http://localhost:3001/${
+              src={`${process.env.REACT_APP_API_URL}/${
                 user.ProfileImagePath
                   ? user.ProfileImagePath.replace("public", "")
                   : ""
