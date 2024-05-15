@@ -1,6 +1,10 @@
 Rental Dream - A MERN Stack Application
 Rental Dream is a full-stack web application built using MongoDB, Express.js, React.js, and Node.js, collectively known as the MERN stack.  It's a rental property listing platform where users can list their properties, book available properties, and add properties to their wishlist.
 
+Live Website:  https://rentaldream.onrender.com
+
+Keep in mind that the server is hosted in Render, meaning that any image inside the lists created will be displayed only until the server restarts again, after that the images created in the new listing won't be displayed.
+
 ![Screenshot1](https://github.com/MatiasRZ7/Rentaldreamapp/assets/160002289/da28cc92-4a0d-4be1-bb14-5e1134924129)
 
 ![Screenshot2](https://github.com/MatiasRZ7/Rentaldreamapp/assets/160002289/13104111-acea-4361-9082-282caacf64b3)
